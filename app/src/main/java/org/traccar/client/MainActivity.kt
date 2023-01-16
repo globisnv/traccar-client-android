@@ -15,14 +15,23 @@
  */
 package org.traccar.client
 
-import androidx.appcompat.app.AppCompatActivity
+import android.os.Build
 import android.os.Bundle
+import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
+
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var toolbar : androidx.appcompat.widget.Toolbar
+
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main)
+        toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        getSupportActionBar()?.setDisplayShowTitleEnabled(false)
     }
 
 }
